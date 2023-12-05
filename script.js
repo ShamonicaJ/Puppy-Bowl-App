@@ -35,10 +35,16 @@ const addNewPlayer = async (playerObj) => {
     try {
         const response = await fetch(APIURL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                name: newPlayerFormContainer.name.value,
-                breed: newPlayerFormContainer.breed.value,
+                name: playerObj.name.value,
+                breed: playerObj.breed.value,
+                status: playerObj.status.value,
+                imageUrl: playerObj.imageUrl.value,
+                createdAt: playerObj.createdAt,
+                updtedAt: playerObj.updtedAt,
+                teamId: playerObj.teamId,
+                cohortId: playerObj.cohortId
             }),
         });
         const result = await response.json();
